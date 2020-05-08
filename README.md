@@ -30,13 +30,23 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain how to build stateful class components.
 
+Stateful components are built by initializing them with state. By passing handler methods and state values down through props, we can keep all of our state in one component.
+
 2. Describe the different phases of the component lifecycle.
+
+When a component is loaded, the constructor is run, the component is rendered, and then componentDidMount. During the render phase, all child components attempt to complete the same 3 steps. When props or state are changed, the component is rerendered and then componentDidUpdate is run. Whenever a component is going to be removed from the DOM, componentWillUnmount is run.
 
 3. Demonstrate an understanding of class component lifecycle methods.
 
+For a project I did with an API call, I stored the API url in my component's state, and the axios GET in a method. In componentDidMount, I put a call to that helper function to populate initial data. In componentDidUpdate, I threw in a conditional so that whenever the url was updated, the helper method was invoked again.
+
 4. Define stateful logic.
 
+Stateful logic is a way of setting up the logic of your code so that all of the important app information is stored in one centralized component.
+
 5. Describe how to test a React component with React Testing Library.
+
+Through a series of queries to the DOM as well as simulated inputs and browser events, you can test that elements are rendering when they should be, if your forms are working correctly, and if any eventListeners are being called correctly.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
@@ -54,32 +64,32 @@ _Please follow the setup instructions closely so that you can get everything up 
 
 **Basic set up**
 
-- [ ] Create a forked copy of this project
-- [ ] Add your team lead as collaborator on Github
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!)
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [done] Create a forked copy of this project
+- [done] Add your team lead as collaborator on Github
+- [done] Clone your OWN version of the repository (Not Lambda's by mistake!)
+- [done] Create a new branch: git checkout -b `<firstName-lastName>`.
 
 **Starting the server**
 
-- [ ] Run `npm install` to download dependencies for the server.
-- [ ] Run the server using `npm start`.
-- [ ] Open a new browser tab and navigate to `http://localhost:3333/plants` - if you see a JSON object with plants data, then you know the server is running 👍
+- [done] Run `npm install` to download dependencies for the server.
+- [done] Run the server using `npm start`.
+- [done] Open a new browser tab and navigate to `http://localhost:3333/plants` - if you see a JSON object with plants data, then you know the server is running 👍
 
 **Starting the React app**
 
-- [ ] In a separate terminal cd into the `client` folder and run `npm install` to download dependencies.
-- [ ] Still inside the `client` folder run `npm run start` to run the client application.
-- [ ] Your browser should open up the project as normal
+- [done] In a separate terminal cd into the `client` folder and run `npm install` to download dependencies.
+- [done] Still inside the `client` folder run `npm run start` to run the client application.
+- [done] Your browser should open up the project as normal
 
 **Starting your test runner**
 
-- [ ] In the final terminal window, make sure you are in the `client` folder still
-- [ ] Start the test runner with `npm test` (I recommend doing this only when you're testing - any change in your app will make the tests run, and that could eat up your computer power)
+- [done] In the final terminal window, make sure you are in the `client` folder still
+- [done] Start the test runner with `npm test` (I recommend doing this only when you're testing - any change in your app will make the tests run, and that could eat up your computer power)
 
 **Commit and Push OFTEN!**
 
-- [ ] Implement the project on this Branch, **committing progress & changes often.**
-- [ ] Push commits: `git push origin <firstName-lastName>`.
+- [done] Implement the project on this Branch, **committing progress & changes often.**
+- [done] Push commits: `git push origin <firstName-lastName>`.
 
 ### Task 2: Project Requirements
 
