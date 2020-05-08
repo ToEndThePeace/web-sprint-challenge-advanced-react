@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import useForm from "../hooks/useForm";
 
 const initialValue = {
   firstName: "",
@@ -6,7 +7,7 @@ const initialValue = {
   address: "",
   city: "",
   state: "",
-  zip: "",
+  zip: ""
 };
 
 // This form should be handled by a "useForm" custom hook
@@ -15,15 +16,14 @@ const initialValue = {
 
 const CheckoutForm = (props) => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [values, setValues] = useState(initialValue);
-
-  const handleChanges = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-  };
+  const [values, handleChanges, clearForm] = useForm(initialValue);
+  const [successValues, setSuccessValues] = useState(initialValue)
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowSuccessMessage(true);
+    setSuccessValues(values);
+    clearForm();
   };
 
   return (
@@ -66,7 +66,7 @@ const CheckoutForm = (props) => {
           Zip:
           <input name="zip" value={values.zip} onChange={handleChanges} />
         </label>
-        <button>Checkout</button>
+        <button data-testid="submit">Checkout</button>
       </form>
 
       {showSuccessMessage && (
@@ -78,11 +78,11 @@ const CheckoutForm = (props) => {
           <br />
           <br />
           <p>
-            {values.firstName} {values.lastName}
+            {successValues.firstName} {successValues.lastName}
           </p>
-          <p>{values.address}</p>
+          <p>{successValues.address}</p>
           <p>
-            {values.city}, {values.state} {values.zip}
+            {successValues.city}, {successValues.state} {successValues.zip}
           </p>
         </div>
       )}
